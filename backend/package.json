@@ -1,0 +1,10 @@
+{
+  "name": "robo-expression-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Stefan Seegerer",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^7.1.2"
+  }
+}
