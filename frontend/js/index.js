@@ -174,19 +174,19 @@ function feelingthis(emotion) {
       TweenMax.to(jQuery("#right .eyelid"), 0.2, {
         css: {
           borderBottomRightRadius: "100%",
-          height: "20px"
+          height: "10vh"
         }
       })
       TweenMax.to(jQuery("#left .eyelid"), 0.2, {
         css: {
           borderBottomLeftRadius: "100%",
-          height: "20px"
+          height: "10vh"
         }
       })
       TweenMax.to(jQuery("hr"), 0.3, {
         css: {
-          borderBottom: "1px solid #ff4040",
-          borderTop: " 1px solid #4a4a4a"
+          borderBottom: "8px solid #ff4040",
+          borderTop: " 8px solid #4a4a4a"
         }
       })
       break
@@ -195,22 +195,22 @@ function feelingthis(emotion) {
         css: {
           borderBottomRightRadius: "100%",
           borderBottomLeftRadius: "100%",
-          height: "10px"
+          height: "9vh"
         }
       })
       TweenMax.to(jQuery("#left .eyelid"), 0.2, {
         css: {
           borderBottomRightRadius: "100%",
           borderBottomLeftRadius: "100%",
-          height: "10px"
+          height: "9vh"
         }
       })
       TweenMax.to(jQuery("#right, #left"), 0.2, {
         css: {
           borderBottomRightRadius: "100%",
           borderBottomLeftRadius: "100%",
-          height: "20px",
-          bottom: "-30px"
+          height: "22vh",
+          bottom: "-38vh"
         }
       })
       break
