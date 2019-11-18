@@ -218,7 +218,7 @@ function feelingthis(emotion) {
       TweenMax.to(jQuery("#left .eyelid"), 0.2, {
         css: {
           borderBottomLeftRadius: "100%",
-          height: "10px"
+          height: "9vh"
         }
       })
       break
