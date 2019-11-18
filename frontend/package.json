@@ -1,0 +1,14 @@
+{
+  "name": "robo-expression-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Stefan Seegerer",
+  "license": "MIT",
+  "dependencies": {
+    "less": "^3.10.3",
+    "less-watch-compiler": "^1.14.1"
+  },
+  "scripts": {
+    "watch": "less-watch-compiler less css style.less"
+  }
+}
