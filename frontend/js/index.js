@@ -111,21 +111,21 @@ function feelingthis(emotion) {
     case "reallysad":
       TweenMax.to(jQuery("#right, #left"), 0.1, {
         css: {
-          bottom: "calc(100% * (-40) / 150)",
-          left: "-calc(100% * (-20) / 150)",
-          height: "calc(100% * 20 / 150)"
+          bottom: "-50%",
+          left: "8%",
+          height: "25%"
         }
       })
       TweenMax.to(jQuery("#right .eyelid"), 0.2, {
         css: {
           borderBottomLeftRadius: "100%",
-          height: "calc(100% * 10 / 150)"
+          height: "40%"
         }
       })
       TweenMax.to(jQuery("#left .eyelid"), 0.2, {
         css: {
           borderBottomRightRadius: "100%",
-          height: "calc(100% * 10 / 150)"
+          height: "40%"
         }
       })
       break
@@ -229,16 +229,16 @@ function feelingthis(emotion) {
       TweenMax.to(jQuery("#left"), 0.5, {
         css: {
           right: "-50px",
-          height: "10px",
-          bottom: "-60px"
+          height: "4vh",
+          bottom: "-70vh"
         }
       })
       TweenMax.to(jQuery("#right"), 0.5, {
         css: {
           top: "52px",
           right: "5px",
-          height: "10px",
-          width: "10px",
+          height: "2vh",
+          width: "2vh",
           borderRadius: "20px"
         }
       })
@@ -264,14 +264,15 @@ function feelingthis(emotion) {
           borderRadius: "10px",
           position: "absolute",
           boxShadow: "0 0 15px #ffbf00",
-          left: "84px",
+          left: "41.5vw",
           zIndex: "1"
         }
       })
       TweenMax.to(jQuery("#left hr"), 0.1, {
         css: {
-          borderBottom: "8px solid #ffbf00",
-          borderTop: "8px solid rgba(255, 191, 0, 0.51)"
+          borderBottom: "2px solid #ffbf00",
+          borderTop: "2px solid rgba(255, 191, 0, 0.51)",
+          margin: "0 0 2px 0"
         }
       })
       TweenMax.to(jQuery("#right"), 0.1, {
@@ -282,14 +283,14 @@ function feelingthis(emotion) {
           borderRadius: "50px",
           position: "absolute",
           boxShadow: "0 0 15px #ff0007",
-          left: "69px",
+          left: "40vw",
           zIndex: "0"
         }
       })
       TweenMax.to(jQuery("#right hr"), 0.1, {
         css: {
-          borderBottom: "8px solid #ff0007",
-          borderTop: "8px solid rgba(255, 60, 65, 0.6)"
+          borderBottom: "2px solid #ff0007",
+          borderTop: "2px solid rgba(255, 60, 65, 0.6)"
         }
       })
       TweenMax.to(jQuery(".lowereyelid"), 0.1, {
