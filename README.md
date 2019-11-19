@@ -3,9 +3,9 @@
 ## About
 
 This simple project is to allow kids to create their own little robot, where a smartphone is the face of the robot.
-This is inspired by [PopBts](https://www.media.mit.edu/projects/pop-kit/overview/), but aims at students aged 12 or older.
+It is inspired by [PopBots](https://www.media.mit.edu/projects/pop-kit/overview/), but aims at students aged 12 or older.
 
-The project is based on a codepen from sebastien.
+The project itself is based on a codepen from sebastien.
 
 Original copyright note:
 
