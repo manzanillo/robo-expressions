@@ -132,7 +132,7 @@ function feelingthis(emotion) {
     case "dubitative":
       TweenMax.to(jQuery("#left"), 0.1, {
         css: {
-          height: "calc(100% * 39 / 150)"
+          height: "30%"
         }
       })
       break
