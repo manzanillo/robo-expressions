@@ -141,14 +141,14 @@ function feelingthis(emotion) {
         css: {
           height: "calc(100% * 39 / 150)",
           bottom: "-calc(100% * (-10) / 150)",
-          right: "calc(100% * (-20) / 150)"
+          right: "calc(100% * (-20) / 150)",
+          top: "15%"
         }
       })
       TweenMax.to(jQuery("#right"), 0.1, {
         css: {
-          height: "calc(100% * 60 / 150)",
+          height: "42%",
           right: "calc(100% * (-20) / 150)",
-          top: "calc(100% * (-11) / 150)",
           width: "calc(100% * 40 / 150)"
         }
       })
@@ -158,14 +158,13 @@ function feelingthis(emotion) {
         css: {
           height: "calc(100% * 39 / 150)",
           bottom: "calc(100% * (-10) / 150)",
-          left: "calc(100% * (-20) / 150)"
+          left: "0%",
+          top: "15%"
         }
       })
       TweenMax.to(jQuery("#left"), 0.1, {
         css: {
-          height: "calc(100% * 60 / 150 + )",
-          left: "calc(100% * (-20) / 150)",
-          top: "calc(100% * (-11) / 150)",
+          height: "42%",
           width: "calc(100% * 40 / 150)"
         }
       })
@@ -264,7 +263,7 @@ function feelingthis(emotion) {
           borderRadius: "10px",
           position: "absolute",
           boxShadow: "0 0 15px #ffbf00",
-          left: "41.5vw",
+          left: "45.8vw",
           zIndex: "1"
         }
       })
@@ -283,7 +282,7 @@ function feelingthis(emotion) {
           borderRadius: "50px",
           position: "absolute",
           boxShadow: "0 0 15px #ff0007",
-          left: "40vw",
+          left: "45vw",
           zIndex: "0"
         }
       })
