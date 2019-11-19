@@ -1,10 +1,10 @@
 function connect() {
   var websocketProtocol = location.protocol === "https:" ? "wss://" : "ws://"
 
-  var host = window.location.host ? window.location.host : "localhost:8080"
+  var host = "localhost:8080" //window.location.host ? window.location.host : "localhost:8080"
   var customPath = "abc"
 
-  var socket = new WebSocket(websocketProtocol + host + "/a" + customPath)
+  var socket = new WebSocket(websocketProtocol + host + "/" + customPath)
 
   console.log(socket)
 

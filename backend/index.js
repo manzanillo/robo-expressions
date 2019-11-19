@@ -1,6 +1,6 @@
-const WebSocket = require('ws')
+const WebSocket = require("ws")
 
-const http = require('http')
+const http = require("http")
 //TODO: Security
 //const fs = require('fs');
 //const https = require('https');
@@ -11,21 +11,21 @@ const http = require('http')
 })*/
 
 const actions = [
-  'smiling',
-  'checkright',
-  'checkleft',
-  'giggling',
-  'dubitative',
-  'sad',
-  'reallysad',
-  'bored',
-  'dubitative',
-  'chock',
-  'suspicious',
-  'satisfied',
-  'pong',
-  'killthehumans',
-  'hal9000'
+  "smiling",
+  "checkright",
+  "checkleft",
+  "giggling",
+  "dubitative",
+  "sad",
+  "reallysad",
+  "bored",
+  "dubitative",
+  "chock",
+  "suspicious",
+  "satisfied",
+  "pong",
+  "killthehumans",
+  "hal9000"
 ]
 
 let CLIENTS = []
@@ -34,17 +34,18 @@ const server = http.createServer()
 
 const wss = new WebSocket.Server({ port: 8080 })
 
-wss.on('connection', function connection(ws, request, client) {
+wss.on("connection", function connection(ws, request, client) {
   CLIENTS[request.url] = ws
   CLIENTS.push(ws)
 
   console.log(request.url)
-  ws.on('message', function incoming(message) {
-    console.log('received: %s', message)
-    const action = 'jump'
+  ws.on("message", function incoming(message) {
+    console.log("received: %s", message)
     //ws.send(action)
-    for (var j = 0; j < CLIENTS.length; j++) {
-      CLIENTS[j].send(message)
+    if (actions.indexOf(message.toLowerCase()) > -1) {
+      for (var j = 0; j < CLIENTS.length; j++) {
+        CLIENTS[j].send(message.toLowerCase())
+      }
     }
   })
 })
