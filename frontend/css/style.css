@@ -1,6 +1,7 @@
 body {
   background: #000;
   text-align: center;
+  overflow-x: hidden;
 }
 #carlingue {
   height: 100vh;
