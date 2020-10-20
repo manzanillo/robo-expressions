@@ -68,9 +68,7 @@
             console.log(input.value)
             if (input.value && input.value.length > 1 && input.value.match("^[A-Za-z0-9]+$")) {
                 $(".error-message").hide()
-                let newUrl = window.location.href.split("?")[0]
-                newUrl = newUrl.replace("index.html", "bot.html?room=" + input.value)
-                window.location.href = newUrl
+                window.location.href = "bot.html?room=" + input.value
             }
             else {
                 $(".error-message").show()
