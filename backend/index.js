@@ -28,23 +28,33 @@ const actions = [
   "hal9000"
 ]
 
-let CLIENTS = []
+let CLIENTS = {}
 
 const server = http.createServer()
 
 const wss = new WebSocket.Server({ port: 8080 })
 
 wss.on("connection", function connection(ws, request, client) {
-  CLIENTS[request.url] = ws
-  CLIENTS.push(ws)
+  // remove query params
+  let url = request.url.split("?")[0]
 
-  console.log(request.url)
+  // users need to specify a custom room
+  if (url.length < 2){
+    ws.close()
+  }
+
+  if (CLIENTS[url] && CLIENTS[url].length > 0){
+    CLIENTS[url].push(ws)
+  }
+  else {
+      CLIENTS[url] = [ws]
+  }
+  console.log(url)
   ws.on("message", function incoming(message) {
     console.log("received: %s", message)
-    //ws.send(action)
     if (actions.indexOf(message.toLowerCase()) > -1) {
-      for (var j = 0; j < CLIENTS.length; j++) {
-        CLIENTS[j].send(message.toLowerCase())
+      for (var j = 0; j < CLIENTS[url].length; j++) {
+        CLIENTS[url][j].send(message.toLowerCase())
       }
     }
   })
