@@ -4,6 +4,9 @@ function connect() {
   var host = "localhost:8080" //window.location.host ? window.location.host : "localhost:8080"
   var customPath = "abc"
 
+  var MAX_CONN_RETRY = 100
+  var counter_retry_connection = 0
+  var retry_delay_time = 1000
   var socket = new WebSocket(websocketProtocol + host + "/" + customPath)
 
   console.log(socket)
@@ -15,7 +18,11 @@ function connect() {
 
   socket.onclose = function(e) {
     console.error("Chat socket closed unexpectedly")
-    setTimeout(connect, 10000)
+    counter_retry_connection += 1
+    if (counter_retry_connection < MAX_CONN_RETRY){
+      setTimeout(connect,  retry_delay_time)
+      retry_delay_time *= 2
+    }
   }
 
   socket.onopen = function(e) {
