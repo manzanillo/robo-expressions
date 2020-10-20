@@ -5,3 +5,7 @@ A PEN BY sebastien
 https://anki.com/en-us/cozmo
 
 Sebastien tried to reproduce some of his faces expressions.
+
+
+
+The landing page is inspired by this codepen: https://codepen.io/hammercait/pen/QWNmEeY

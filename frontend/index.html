@@ -1,97 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Robo Expressions</title>
 
     <link rel="stylesheet" href="css/style.css" />
-  </head>
+    <link rel="stylesheet" href="css/landing.css" />
+    <link rel="stylesheet" href="css/bot.css" />
+</head>
 
-  <body>
-    <div id="carlingue">
-      <div id="screen">
-        <div id="eyes" class="">
-          <div id="left">
-            <div class="eyelid"></div>
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <div class="lowereyelid"></div>
-          </div>
-          <div id="right">
-            <div class="eyelid"></div>
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <div class="lowereyelid"></div>
-          </div>
+<body>
+
+    <header>
+        <div class="navbar">
+            <h1>Robo Expressions</h1>
         </div>
-      </div>
+    </header>
+    <div class="content">
+        <div class="section1">
+            <img src="images/robos.png" alt="Some robots" width="50%">
+            <div class="mountain">
+                <div class="mountain-words">
+                    <h1>Verbinde dein Smartphone mit Snap<i>!</i></h1>
+                    <h2>Öffne diese Website auf deinem Smartphone. Gib auf Snap! und hier denselben Raumnamen ein und werde kreativ!</h2>
+                    <form action="javascript:handleClick()">
+                        <label class="input-label"  for="room">Raumname:</label>
+                        <br/>
+                        <input class="input-field" type="text" name="room" id="room" maxlength="30">
+                        <br/>
+                        <input class="action-btn" type="submit" value="Loslegen">
+                    </form>
+                    <p class="error-message">Kein gültiger Raumname.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="curriculum">
+            <img src="images/ML und Al.png"
+                alt="AI and ML" width="30%">
+            <div class="curriculum-text">
+                <h1>Erstelle deinen eigenen persönlichen Assistenten</h1>
+                <p>Nutze maschinelles Lernen, um deinen eigenen persönlichen Assistenten zu erschaffen.
+                    Hier findest du in Kürze heraus wie das geht.
+                    Solange schau doch mal auf unserer anderen Website vorbei.
+                </p>
+                <a href="https://www.computingeducation.de">Hier geht's lang ➤</a>
+            </div>
+        </div>
     </div>
-    <div class="cornerleft"></div>
-    <div class="cornerright"></div>
-    <ul id="actions">
-      <li><a href="#smiling">Smiling</a></li>
-      <li><a href="#checkright">Check Right</a></li>
-      <li><a href="#checkleft">Check Left</a></li>
-      <li><a href="#giggling">Giggling</a></li>
-      <li><a href="#dubitative">Dubitative</a></li>
-      <li><a href="#sad">Sad</a></li>
-      <li><a href="#reallysad">Really sad</a></li>
-      <li><a href="#bored">Bored</a></li>
-      <li><a href="#dubitative">Dubitative</a></li>
-      <li><a href="#chock">Chock</a></li>
-      <li><a href="#suspicious">Suspicious</a></li>
-      <li><a href="#satisfied">Satisfied</a></li>
-      <li><a href="#pong">Pong</a></li>
-      <li><a href="#killthehumans">Kill all the humans</a></li>
-      <li><a href="#hal9000">Hal</a></li>
-    </ul>
+    <footer>
+        <ul class="info">
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">Impressum</a></li>
+            <li> <a target="_blank" rel="_noopener" href="https://github.com/manzanillo/robo-expressions">Github</a></li>
+            <li><a href="https://www.stefanseegerer.de" target="_blank" rel="_noopener">Made with ♥ by Stefan Seegerer</a></li>
+        </ul>
+    </footer>
+
+
     <script src="js/dist/jquery-2.2.4.min.js"></script>
     <script src="js/dist/TweenMax.min.js"></script>
 
-    <script src="js/index.js"></script>
-  </body>
+    <script>
+        function handleClick() {
+            let input = document.getElementById("room")
+            console.log(input.value)
+            if (input.value && input.value.length > 1 && input.value.match("^[A-Za-z0-9]+$")) {
+                $(".error-message").hide()
+                let newUrl = window.location.href.split("?")[0]
+                newUrl = newUrl.replace("index.html", "bot.html?room=" + input.value)
+                window.location.href = newUrl
+            }
+            else {
+                $(".error-message").show()
+            }
+        }
+    </script>
+</body>
+
 </html>
