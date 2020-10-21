@@ -277,7 +277,7 @@ jQuery(document).ready(function(e) {
           css: {
             borderTopRightRadius: "100%",
             borderTopLeftRadius: "100%",
-            height: "7vh"
+            height: "8vh"
           }
         })
         TweenMax.to(jQuery("#right"), 0.2, {
@@ -297,10 +297,10 @@ jQuery(document).ready(function(e) {
           }
         })
         TweenMax.to(jQuery("#left .lowereyelid"), 0.1, {
-          css: { transform: "rotate(4deg)", bottom: "-2vh" }
+          css: { transform: "rotate(4deg)", bottom: "-3.5vh" }
         })
         TweenMax.to(jQuery("#right .lowereyelid"), 0.1, {
-          css: { transform: "rotate(-4deg)", bottom: "-2vh" }
+          css: { transform: "rotate(-4deg)", bottom: "-3.5vh" }
         })
         break
     }

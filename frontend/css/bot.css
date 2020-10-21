@@ -1,10 +1,14 @@
-
+body{
+  margin: 0px;
+  overflow-y: hidden;
+}
 #carlingue {
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     display: inline-block;
     padding: 20px 25px;
     margin-top: 10vh;
+    margin-left: 5vw;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
     /* IE6-9 */
   }
@@ -219,7 +223,7 @@
   .cornerleft {
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: -80px;
     width: 85px;
     height: 85px;
     background-size: cover;
@@ -228,7 +232,7 @@
   }
   .cornerright {
     position: absolute;
-    bottom: 5px;
+    bottom: -45px;
     left: 5px;
     width: 85px;
     height: 85px;
@@ -237,4 +241,59 @@
     opacity: 0.5;
     background-image: url("data:image/png;base64,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");
   }
+
   
+@media only screen and (min-width: 400px) {
+  .cornerleft {
+    right: 0px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .cornerleft {
+    right: 0px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .cornerleft {
+    right: 0px;
+  }
+}
+
+@media only screen and (min-width: 2400px) {
+  .cornerleft {
+    right: 0px;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1199px){
+  .cornerleft {
+    right: 0px;
+  }
+}
+
+@media only screen and (min-height: 50px){
+  .cornerright {
+    bottom: 0px;
+  }
+}
+
+@media only screen and (min-height: 600px){
+  .cornerright {
+    bottom: 0px;
+  }
+}
+
+@media only screen and (min-height: 875px){
+  .cornerright {
+    bottom: -70px;
+  }
+}
+
+@media only screen and (min-height: 1000px){
+  .cornerright {
+    bottom: 0px;
+  }
+}
+
