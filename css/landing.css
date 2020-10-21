@@ -152,6 +152,29 @@ p{
 }
 
 
+
+@media only screen and (max-width: 800px) {
+    /* For mobile phones: */
+    .curriculum-text h1{
+        width:  80%;
+    }
+    .curriculum-text p{
+        width:90%x;
+    }
+
+    .curriculum{
+      padding-top: 200px;
+      padding-bottom: 50px;
+      margin-left: 50px;
+    }
+    
+    .curriculum > img {
+        width: 20%;
+        padding-top: 175px;
+    }
+  }
+
+
 footer{
     background-color:hsl(216, 53%, 9%);
     box-sizing: border-box;
@@ -187,4 +210,11 @@ footer{
 .error-message{
     display:none;
     
+}
+
+
+.form {
+    width: 80%;
+    left: 10%;
+    position: absolute;
 }
