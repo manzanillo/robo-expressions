@@ -1,6 +1,14 @@
 # Robo Expressions
 
-![Screenshot](screenshot.png "Screenshot")
+![Screenshot](screenshot.png 'Screenshot')
+
+## To start the server locally
+
+```
+cd backend
+npm i
+node index.js
+```
 
 ## About
 
