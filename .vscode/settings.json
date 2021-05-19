@@ -1,8 +1,0 @@
-{
-    "liveServer.settings.https": {
-        "enable": true,
-        "cert": "C:\\cygwin64\\home\\Margarita\\rootSSL.pem",
-        "key": "C:\\cygwin64\\home\\Margarita\\rootSSL.key",
-        "passphrase": "12345"
-    }
-}
