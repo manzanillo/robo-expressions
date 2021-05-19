@@ -231,19 +231,16 @@ function feelingthis(emotion) {
     case 'recorder':
       TweenMax.to(jQuery('#left'), 0.1, {
         css: {
-          transform: 'matrix(0.5, 0, 0, 1, 0, 0)',
+          transform: 'matrix(1, 0, 0, 1, 0, 0)',
           right: '-20%',
-          borderRadius: '20%',
+          clipPath: 'url(#svgPath)',
           boxShadow: '5px 5px #000',
+          height: '100%',
         },
       })
       TweenMax.to(jQuery('#right'), 0.1, {
         css: {
-          top: '35%',
-          right: '17%',
-          height: '100%',
-          borderRadius: '0%',
-          clipPath: 'url(#svgPath)',
+          display: 'none',
         },
       })
 
