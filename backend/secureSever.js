@@ -2,6 +2,18 @@ const fs = require('fs');
 const https = require('https');
 const WebSocket = require('ws');
 
+// const config = require('../.vscode/settings.json')
+
+// console.log(config["liveServer.settings.https"].cert)
+// console.log(config["liveServer.settings.https"].key)
+// console.log(config["liveServer.settings.https"].passphrase)
+
+// const server = https.createServer({
+//     cert: config["liveServer.settings.https"].cert,
+//     key: config["liveServer.settings.https"].key,
+//     passphrase: config["liveServer.settings.https"].passphrase
+// });
+
 const server = https.createServer({
     cert: fs.readFileSync('C:\\cygwin64\\home\\Margarita\\rootSSL.pem'),
     key: fs.readFileSync('C:\\cygwin64\\home\\Margarita\\rootSSL.key'),
@@ -48,7 +60,6 @@ wss.on('connection', function connection(ws, request) {
     console.log(url)
     ws.on("message", function incoming(message) {
         console.log("received: %s", message)
-        console.log()
         if (actions.indexOf(message.toLowerCase()) > -1) {
             for (var j = 0; j < CLIENTS[url].length; j++) {
                 CLIENTS[url][j].send(message.toLowerCase())

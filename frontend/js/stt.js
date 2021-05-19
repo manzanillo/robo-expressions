@@ -29,7 +29,9 @@ function reset() {
 }
 
 function toggleStartStop() {
+
   if (recognizing) {
+    // TODO change face speech recording
     if (testingOnPC) {
       console.log("stop listening");
     } else {
@@ -39,6 +41,7 @@ function toggleStartStop() {
     sr.stop();
     reset();
   } else {
+    // TODO change face to normal
     if (testingOnPC) {
       console.log("start listening");
     } else {
