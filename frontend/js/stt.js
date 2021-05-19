@@ -52,7 +52,7 @@ function toggleStartStop() {
 function checkPermissions() {
   const permissions = navigator.mediaDevices.getUserMedia({ audio: true, video: false })
   permissions.then((stream) => {
-    alert('accepted the permissions');
+    // alert('accepted the permissions');
     this.setState(((prevState) => {
       havePermissions: !prevState.havePermissions
     }));

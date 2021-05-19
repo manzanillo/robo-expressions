@@ -1,11 +1,12 @@
-function getQueryParam(paramName){
+function getQueryParam(paramName) {
   let uri = window.location.href.split("?")[1]
   let params = new URLSearchParams(uri)
   return params.get(paramName)
 }
 
 function connect() {
-  var websocketProtocol = location.protocol === "https:" ? "wss://" : "ws://"
+  // TODO check why the secureServer accepts connections only with ws  
+  var websocketProtocol = "ws://"//location.protocol === "https:" ? "wss://" : "ws://"
 
   var host = "localhost:8080" //window.location.host ? window.location.host : "localhost:8080"
   var customPath = getQueryParam("room") || "abc"
@@ -17,21 +18,22 @@ function connect() {
 
   console.log(socket)
 
-  socket.onmessage = function(evt) {
+  socket.onmessage = function (evt) {
     console.log(evt.data)
     feelingthis(evt.data)
+    saveUtterance(evt.data)
   }
 
-  socket.onclose = function(e) {
+  socket.onclose = function (e) {
     console.error("Chat socket closed unexpectedly")
     counter_retry_connection += 1
-    if (counter_retry_connection < MAX_CONN_RETRY){
-      setTimeout(connect,  retry_delay_time)
+    if (counter_retry_connection < MAX_CONN_RETRY) {
+      setTimeout(connect, retry_delay_time)
       retry_delay_time *= 2
     }
   }
 
-  socket.onopen = function(e) {
+  socket.onopen = function (e) {
     console.log("websocket connection established")
   }
 }

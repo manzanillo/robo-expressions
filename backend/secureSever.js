@@ -28,7 +28,7 @@ const actions = [
 
 let CLIENTS = {}
 
-const wss = new WebSocket.Server({ server, port: 8080 });
+const wss = new WebSocket.Server({ server: server, port: 8080 });
 
 wss.on('connection', function connection(ws, request) {
     // remove query params
@@ -48,9 +48,16 @@ wss.on('connection', function connection(ws, request) {
     console.log(url)
     ws.on("message", function incoming(message) {
         console.log("received: %s", message)
+        console.log()
         if (actions.indexOf(message.toLowerCase()) > -1) {
             for (var j = 0; j < CLIENTS[url].length; j++) {
                 CLIENTS[url][j].send(message.toLowerCase())
+            }
+        } else {
+            // send to the websocket something to say
+            for (var j = 0; j < CLIENTS[url].length; j++) {
+                console.log("sendig " + message.split([":"])[1])
+                CLIENTS[url][j].send(message.split([":"])[1])
             }
         }
     })
