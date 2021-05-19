@@ -1,78 +1,78 @@
-var carlingue = document.getElementById("carlingue");
-var recognizing;
+var carlingue = document.getElementById('carlingue')
+var recognizing = false
 
 // do not forget to change carlingue.ontouchend or onclicked accordingly
-var testingOnPC = false;
+var testingOnPC = false
 
 // initialize speech SpeechRecognition
-var sr = new webkitSpeechRecognition();
-sr.lang = 'de-DE';
-sr.maxAlternatives = 1;
-sr.continuous = true;
-reset();
-sr.onend = reset();
+var sr = new webkitSpeechRecognition()
+sr.lang = 'de-DE'
+sr.maxAlternatives = 1
+sr.continuous = true
+reset()
+sr.onend = reset()
 
 sr.onresult = function (event) {
   for (var i = event.resultIndex; i < event.results.length; ++i) {
     if (event.results[i].isFinal) {
       if (testingOnPC) {
-        console.log(event.results[i][0].transcript);
+        console.log(event.results[i][0].transcript)
       } else {
-        alert(event.results[i][0].transcript);
+        alert(event.results[i][0].transcript)
       }
     }
   }
 }
 
 function reset() {
-  recognizing = false;
+  recognizing = false
 }
 
 function toggleStartStop() {
-
   if (recognizing) {
-    // TODO change face speech recording
+    feelingthis(previousEmotion)
     if (testingOnPC) {
-      console.log("stop listening");
+      console.log('stop listening')
     } else {
-      alert("stop listening");
+      alert('stop listening')
     }
 
-    sr.stop();
-    reset();
+    sr.stop()
+    reset()
   } else {
-    // TODO change face to normal
+    feelingthis('recorder')
     if (testingOnPC) {
-      console.log("start listening");
+      console.log('start listening')
     } else {
-      alert("start listening");
+      alert('start listening')
     }
-    sr.start();
-    recognizing = true;
+    sr.start()
+    recognizing = true
   }
 }
 
 function checkPermissions() {
-  const permissions = navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-  permissions.then((stream) => {
-    // alert('accepted the permissions');
-    this.setState(((prevState) => {
-      havePermissions: !prevState.havePermissions
-    }));
+  const permissions = navigator.mediaDevices.getUserMedia({
+    audio: true,
+    video: false,
   })
+  permissions
+    .then((stream) => {
+      // alert('accepted the permissions');
+      localStorage.setItem('havePermissions', true)
+    })
     .catch((err) => {
-      this.setState(((prevState) => {
-        havePermissions: false
-      }));
+      localStorage.setItem('havePermissions', false)
       console.log(`${err.name} : ${err.message}`)
-    });
+    })
 }
 
-checkPermissions();
+checkPermissions()
 
 // for smart phone
+
 carlingue.ontouchend = function () {
   // for pc
   //carlingue.onclick = function () {
-  toggleStartStop();
+  toggleStartStop()
 }
