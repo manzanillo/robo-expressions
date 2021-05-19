@@ -26,11 +26,11 @@ sr.onresult = function (event) {
 
 function reset() {
   recognizing = false
+  feelingthis(previousEmotion)
 }
 
 function toggleStartStop() {
   if (recognizing) {
-    feelingthis(previousEmotion)
     if (testingOnPC) {
       console.log('stop listening')
     } else {

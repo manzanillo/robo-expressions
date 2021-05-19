@@ -28,6 +28,10 @@ jQuery(document).ready(function (e) {
 })
 
 function feelingthis(emotion) {
+  if (recognizing) {
+    return
+  }
+
   previousEmotion = currentEmotion
   currentEmotion = emotion
   jQuery('#eyes').removeClass()
