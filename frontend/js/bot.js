@@ -2,6 +2,7 @@ jQuery(document).ready(function (e) {
   jQuery('#actions a').click(function (e) {
     var emotion = jQuery(this).attr('href').replace('#', '')
     feelingthis(emotion)
+    speak(emotion)
   })
 
   feelingthis('chock')
@@ -322,5 +323,11 @@ function feelingthis(emotion) {
         css: { transform: 'rotate(-4deg)', bottom: '-3.5vh' },
       })
       break
+  }
+}
+
+function speak(message) {
+  if(message.includes("say")){
+    console.log(message.split([":"])[1])
   }
 }
