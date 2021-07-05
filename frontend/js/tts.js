@@ -6,13 +6,14 @@ let currentUtterance = ""
 
 // speak the utterance
 function speak(smth) {
-    console.log("speaking " + smth)
+    console.log("recieved " + smth)
     if (synth.speaking) {
         console.error('speechSynthesis.speaking');
         synth.cancel();
         setTimeout(speak, 300);
-    } else if (smth !== '') {
-        const utterThis = new SpeechSynthesisUtterance(smth);
+    } else if (smth !== '' && smth.indexOf("speaking") > -1) {
+        console.log("speaking " + smth.split([":"])[1])
+        const utterThis = new SpeechSynthesisUtterance(smth.split([":"])[1]);
         utterThis.onend = function (event) {
             console.log('SpeechSynthesisUtterance.onend');
         };
@@ -55,8 +56,8 @@ function saveUtterance(utterance) {
 
 // user initiates speach output
 // TODO some smart solution for speech initiation
-//carlingue.ontouchend = function () {
-// for pc
-carlingue.onclick = function () {
+carlingue.ontouchend = function () {
+    // for pc
+    //carlingue.onclick = function () {
     speak(currentUtterance)
 }

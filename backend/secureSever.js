@@ -50,15 +50,23 @@ wss.on('connection', function connection(ws, request) {
     console.log(url)
     ws.on("message", function incoming(message) {
         console.log("received: %s", message)
+        // server recieved action
         if (actions.indexOf(message.toLowerCase()) > -1) {
             for (var j = 0; j < CLIENTS[url].length; j++) {
                 CLIENTS[url][j].send(message.toLowerCase())
             }
-        } else {
-            // send to the websocket something to say
+            // server recieved something to say
+        } else if (message.indexOf("speaking") > -1) {
+            // send the message to tts to the websocket with prefix speaking
             for (var j = 0; j < CLIENTS[url].length; j++) {
-                console.log("sendig " + message.split([":"])[1])
-                CLIENTS[url][j].send(message.split([":"])[1])
+                console.log("sendig to tts " + message)
+                CLIENTS[url][j].send(message)
+            }
+        } else if (message.indexOf("heard") > -1) {
+            // send the message to sentiment module with prefix heard
+            for (var j = 0; j < CLIENTS[url].length; j++) {
+                console.log("sendig to sentiment module " + message)
+                CLIENTS[url][j].send(message)
             }
         }
     })

@@ -4,6 +4,8 @@ function getQueryParam(paramName) {
   return params.get(paramName)
 }
 
+var socket;
+
 function connect() {
   // TODO check why the secureServer accepts connections only with ws  
   var websocketProtocol = "ws://"//location.protocol === "https:" ? "wss://" : "ws://"
@@ -14,7 +16,7 @@ function connect() {
   var MAX_CONN_RETRY = 100
   var counter_retry_connection = 0
   var retry_delay_time = 1000
-  var socket = new WebSocket(websocketProtocol + host + "/" + customPath)
+  socket = new WebSocket(websocketProtocol + host + "/" + customPath)
 
   console.log(socket)
 

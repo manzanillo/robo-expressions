@@ -2,7 +2,7 @@ var carlingue = document.getElementById('carlingue')
 var recognizing = false
 
 // do not forget to change carlingue.ontouchend or onclicked accordingly
-var testingOnPC = false
+var testingOnPC = true
 
 // initialize speech SpeechRecognition
 var sr = new webkitSpeechRecognition()
@@ -15,6 +15,7 @@ sr.onend = reset()
 sr.onresult = function (event) {
   for (var i = event.resultIndex; i < event.results.length; ++i) {
     if (event.results[i].isFinal) {
+      socket.send("heard:" + event.results[i][0].transcript)
       if (testingOnPC) {
         console.log(event.results[i][0].transcript)
       } else {
@@ -71,8 +72,8 @@ checkPermissions()
 
 // for smart phone
 
-carlingue.ontouchend = function () {
-  // for pc
-  //carlingue.onclick = function () {
+//carlingue.ontouchend = function () {
+// for pc
+carlingue.onclick = function () {
   toggleStartStop()
 }
