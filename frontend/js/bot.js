@@ -332,9 +332,3 @@ function feelingthis(emotion) {
       break
   }
 }
-
-function speak(message) {
-  if(message.includes("say")){
-    console.log(message.split([":"])[1])
-  }
-}

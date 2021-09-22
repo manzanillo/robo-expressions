@@ -38,7 +38,8 @@ const wss = new WebSocket.Server({ port: 8080 })
 wss.on('connection', function connection(ws, request, client) {
   // remove query params
   let url = request.url.split('?')[0]
-
+  let queryparams = request.url.split('?')[1] || ''
+  let snap = queryparams === 'snap' ? true : false
   // users need to specify a custom room
   if (url.length < 2) {
     ws.close()
@@ -55,6 +56,13 @@ wss.on('connection', function connection(ws, request, client) {
     if (actions.indexOf(message.toLowerCase()) > -1) {
       for (var j = 0; j < CLIENTS[url].length; j++) {
         CLIENTS[url][j].send(message.toLowerCase())
+      }
+    }
+    if (message.indexOf('heard:') > -1 || message.indexOf('say:') > -1) {
+      // the message has been an audio input by the user
+      console.log('send message to Snap / phone')
+      for (var j = 0; j < CLIENTS[url].length; j++) {
+        CLIENTS[url][j].send(message)
       }
     }
   })
