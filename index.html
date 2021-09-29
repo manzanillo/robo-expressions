@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Robo Expressions</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/landing.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <h1>Robo Expressions</h1>
+        </div>
+    </header>
+    <div class="content">
+        <div class="section1">
+            <img src="images/robos.png" alt="Some robots" width="50%">
+            <div class="mountain">
+                <div class="mountain-words">
+                    <h1>Verbinde dein Smartphone mit Snap<i>!</i></h1>
+                    <h2>Öffne diese Website auf deinem Smartphone. Gib auf Snap! und hier denselben Raumnamen ein und
+                        werde kreativ!</h2>
+                    <form action="javascript:handleClick()" class="form">
+                        <label class="input-label" for="room">Raumname:</label>
+                        <br />
+                        <input class="input-field" type="text" name="room" id="room" maxlength="30">
+                        <br />
+                        <input class="action-btn" type="submit" value="Loslegen">
+                    </form>
+                    <p class="error-message">Kein gültiger Raumname.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="curriculum">
+            <img src="images/ML und Al.png" alt="AI and ML" width="30%">
+            <div class="curriculum-text">
+                <h1>Erstelle deinen eigenen persönlichen Assistenten</h1>
+                <p>Nutze maschinelles Lernen, um deinen eigenen persönlichen Assistenten zu erschaffen.
+                    Hier findest du in Kürze heraus wie das geht.
+                    Solange schau doch mal auf unserer anderen Website vorbei.
+                </p>
+                <a href="https://www.computingeducation.de">Hier geht's lang ➤</a>
+            </div>
+        </div>
+
+        <div class="curriculum">
+            <div class="curriculum-text">
+                <h1>Gallerie</h1>
+                <p>Schau dir an, was andere gemacht haben.
+                </p>
+                <a href="gallery.html">Ab zur Gallerie ➤</a>
+                <div style="height: 80px"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <ul class="info">
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">Impressum</a></li>
+            <li> <a target="_blank" rel="_noopener" href="https://github.com/manzanillo/robo-expressions">Github</a>
+            </li>
+            <li><a href="https://www.stefanseegerer.de" target="_blank" rel="_noopener">Made with ♥ by Stefan
+                    Seegerer</a></li>
+        </ul>
+    </footer>
+
+
+    <script src="js/dist/jquery-2.2.4.min.js"></script>
+    <script src="js/dist/TweenMax.min.js"></script>
+
+    <script>
+        function handleClick() {
+            let input = document.getElementById("room")
+            console.log(input.value)
+            if (input.value && input.value.length > 1 && input.value.match("^[A-Za-z0-9]+$")) {
+                $(".error-message").hide()
+                window.location.href = "bot.html?room=" + input.value
+            }
+            else {
+                $(".error-message").show()
+            }
+        }
+    </script>
+</body>
+
+</html>
