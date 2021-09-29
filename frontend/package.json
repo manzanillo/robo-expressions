@@ -11,7 +11,7 @@
   },
   "scripts": {
     "watch": "less-watch-compiler less css style.less",
-    "build": "copyfiles images/* js/* js/dist/* bot.html index.html css/* build",
+    "build": "copyfiles images/* js/* js/dist/* bot.html index.html gallery.html css/* build",
     "deploy": "cd build && git init && git add -A && git commit -m 'deploy' && git push --force https://github.com/manzanillo/robo-expressions.git master:gh-pages"
   }
 }
