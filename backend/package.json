@@ -5,7 +5,7 @@
   "author": "Stefan Seegerer",
   "license": "MIT",
   "dependencies": {
-    "ws": "^7.1.2"
+    "ws": "^7.4.6"
   },
   "scripts": {
     "start": "node ."
