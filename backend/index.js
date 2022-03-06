@@ -53,7 +53,7 @@ wss.on('connection', function connection(ws, request, client) {
   console.log(url)
   ws.on('message', function incoming(message) {
     console.log('received: %s', message)
-    if (actions.indexOf(message.toLowerCase()) > -1) {
+    if (actions.indexOf(message.toString().toLowerCase()) > -1) {
       for (var j = 0; j < CLIENTS[url].length; j++) {
         CLIENTS[url][j].send(message.toLowerCase())
       }
