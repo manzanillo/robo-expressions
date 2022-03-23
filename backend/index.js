@@ -1,14 +1,15 @@
-const WebSocket = require('ws')
+const fs = require('fs');
+const https = require('https');
+const WebSocket = require('ws');
 
-const http = require('http')
-//TODO: Security
-//const fs = require('fs');
-//const https = require('https');
+const config = require('../secrets/settings.json')
 
-/*const server = https.createServer({
-  cert: fs.readFileSync('/path/to/cert.pem'),
-  key: fs.readFileSync('/path/to/key.pem')
-})*/
+const server = https.createServer({
+    cert: fs.readFileSync(config["liveServer.settings.https"].cert), // alternatively: fs.readFileSync('/path/to/cert.pem'),
+    key: fs.readFileSync(config["liveServer.settings.https"].key), // alternatively: fs.readFileSync('/path/to/key.pem')
+    passphrase: config["liveServer.settings.https"].passphrase // can be used, but not needed
+});
+
 
 const actions = [
   'smiling',
@@ -31,9 +32,9 @@ const actions = [
 
 let CLIENTS = {}
 
-const server = http.createServer()
+const server = https.createServer()
 
-const wss = new WebSocket.Server({ port: 8080 })
+const wss = new WebSocket.Server({ server: server, port: 8080 })
 
 wss.on('connection', function connection(ws, request, client) {
   // remove query params
