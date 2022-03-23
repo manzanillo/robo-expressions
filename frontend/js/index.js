@@ -8,9 +8,9 @@ var socket
 
 function connect() {
   // TODO check why the secureServer accepts connections only with ws
-  var websocketProtocol = 'ws://' //location.protocol === "https:" ? "wss://" : "ws://"
+  var websocketProtocol = location.protocol === "https:" ? "wss://" : "ws://"
 
-  var host = 'localhost:8080' //window.location.host ? window.location.host : "localhost:8080"
+  var host = 'agddi-srv02.imp.fu-berlin.de:8080' //window.location.host ? window.location.host : "localhost:8080"
   var customPath = getQueryParam('room') || 'abc'
 
   var MAX_CONN_RETRY = 100

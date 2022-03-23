@@ -11,7 +11,7 @@ function speak(smth) {
     console.error('speechSynthesis.speaking')
     synth.cancel()
     setTimeout(speak, 300)
-  } else if (smth !== '' && smth.indexOf('say:') > -1) {
+  } else if (smth !== '' && smth.toString().indexOf('say:') > -1) {
     console.log('say ' + smth.split([':'])[1])
     const utterThis = new SpeechSynthesisUtterance(smth.split([':'])[1])
     utterThis.onend = function (event) {
