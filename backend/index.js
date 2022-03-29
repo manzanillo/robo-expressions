@@ -1,14 +1,16 @@
-const WebSocket = require('ws')
+const fs = require('fs');
+const https = require('https');
+const WebSocket = require('ws');
 
-const http = require('http')
-//TODO: Security
-//const fs = require('fs');
-//const https = require('https');
+//const config = require('../secrets/settings.json')
 
-/*const server = https.createServer({
-  cert: fs.readFileSync('/path/to/cert.pem'),
-  key: fs.readFileSync('/path/to/key.pem')
-})*/
+const server = https.createServer({
+    cert: fs.readFileSync('/etc/ssl/certs/it2school.imp.fu-berlin.de.pem'),
+    key: fs.readFileSync('it2school.imp.fu-berlin.de-key.pem'),
+//    passphrase: config["liveServer.settings.https"].passphrase // can be used, but not needed
+   port: 18080
+});
+
 
 const actions = [
   'smiling',
@@ -31,9 +33,9 @@ const actions = [
 
 let CLIENTS = {}
 
-const server = http.createServer()
+//const server = https.createServer()
 
-const wss = new WebSocket.Server({ port: 8080 })
+const wss = new WebSocket.Server({ server: server })
 
 wss.on('connection', function connection(ws, request, client) {
   // remove query params
@@ -55,17 +57,17 @@ wss.on('connection', function connection(ws, request, client) {
     console.log('received: %s', message)
     if (actions.indexOf(message.toString().toLowerCase()) > -1) {
       for (var j = 0; j < CLIENTS[url].length; j++) {
-        CLIENTS[url][j].send(message.toLowerCase())
+        CLIENTS[url][j].send(message.toString().toLowerCase())
       }
     }
     if (message.indexOf('heard:') > -1 || message.indexOf('say:') > -1) {
       // the message has been an audio input by the user
-      console.log('send message to Snap / phone')
+      console.log('send message to Snap / phone: ' + message)
       for (var j = 0; j < CLIENTS[url].length; j++) {
-        CLIENTS[url][j].send(message)
+        CLIENTS[url][j].send(message.toString())
       }
     }
   })
 })
 
-//server.listen(8080)
+server.listen(18080)
